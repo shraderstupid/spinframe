@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#09090b" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <title>SpinFrame</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app">
+    <header>
+      <div class="brand-mark" aria-hidden="true">↻</div>
+      <div><h1>SpinFrame</h1><p>Video rotation studio</p></div>
+      <button class="icon-button" id="infoButton" aria-label="Show tips">?</button>
+    </header>
+
+    <section class="stage" id="stage" aria-label="Video preview">
+      <div class="empty-state" id="emptyState">
+        <div class="upload-icon" aria-hidden="true">＋</div>
+        <h2>Choose a video</h2>
+        <p>Your video stays centered while it spins.</p>
+        <label class="primary-button" for="videoInput">Select video</label>
+        <input id="videoInput" type="file" accept="video/*" hidden />
+      </div>
+      <div class="video-shell" id="videoShell" hidden>
+        <video id="video" playsinline loop></video>
+      </div>
+      <button class="stage-play" id="stagePlay" aria-label="Play video" hidden>▶</button>
+      <div class="rotation-badge" id="rotationBadge" hidden>0°</div>
+    </section>
+
+    <section class="controls" id="controls" aria-label="Rotation controls">
+      <div class="section-heading"><span>ROTATION</span><button id="resetButton">Reset</button></div>
+      <div class="direction-toggle" role="group" aria-label="Rotation direction">
+        <button class="direction active" id="clockwiseButton" aria-pressed="true"><span>↻</span> Clockwise</button>
+        <button class="direction" id="counterButton" aria-pressed="false"><span>↺</span> Counter</button>
+      </div>
+
+      <div class="speed-row"><label for="speedRange">Speed</label><output id="speedOutput">30°/s</output></div>
+      <input id="speedRange" type="range" min="0" max="180" value="30" step="1" />
+      <div class="range-labels"><span>Still</span><span>Fast</span></div>
+
+      <div class="action-row">
+        <button class="secondary-button" id="changeButton">Change video</button>
+        <button class="play-button" id="playButton"><span id="playIcon">▶</span><span id="playText">Play</span></button>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="tipsDialog">
+    <button class="dialog-close" id="closeDialog" aria-label="Close">×</button>
+    <h2>Quick tips</h2>
+    <p>Pick any video from your phone. Use the slider to change rotation speed, then tap Clockwise or Counter to reverse direction.</p>
+    <p>The video loops automatically and always stays centered.</p>
+  </dialog>
+  <script src="app.js"></script>
+</body>
+</html>

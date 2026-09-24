@@ -1,0 +1,9 @@
+{
+  "name": "SpinFrame Video Rotator",
+  "short_name": "SpinFrame",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#09090b",
+  "theme_color": "#09090b",
+  "description": "A mobile-first video player with adjustable rotation speed and direction."
+}

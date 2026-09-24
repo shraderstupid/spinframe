@@ -1,0 +1,53 @@
+:root { color-scheme: dark; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; --bg:#09090b; --card:#151518; --line:#29292e; --muted:#96969f; --accent:#b8ff34; }
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+html, body { margin:0; min-height:100%; background:var(--bg); color:#f7f7f8; }
+body { min-height:100dvh; overflow-x:hidden; }
+button, input, label { font:inherit; }
+button { color:inherit; }
+.app { min-height:100dvh; display:grid; grid-template-rows:auto minmax(300px,1fr) auto; max-width:620px; margin:auto; padding:calc(14px + env(safe-area-inset-top)) 16px calc(18px + env(safe-area-inset-bottom)); gap:14px; }
+header { display:flex; align-items:center; gap:11px; }
+header h1 { font-size:18px; letter-spacing:-.02em; margin:0; }
+header p { margin:1px 0 0; font-size:12px; color:var(--muted); }
+.brand-mark { width:38px; height:38px; border-radius:12px; background:var(--accent); color:#101300; display:grid; place-items:center; font-size:25px; font-weight:800; }
+.icon-button { margin-left:auto; width:36px; height:36px; border-radius:50%; border:1px solid var(--line); background:#141416; color:var(--muted); font-weight:800; }
+.stage { min-height:0; position:relative; overflow:hidden; border-radius:24px; border:1px solid var(--line); background-color:#101012; background-image:linear-gradient(45deg,#151518 25%,transparent 25%),linear-gradient(-45deg,#151518 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#151518 75%),linear-gradient(-45deg,transparent 75%,#151518 75%); background-size:24px 24px; background-position:0 0,0 12px,12px -12px,-12px 0; display:grid; place-items:center; isolation:isolate; }
+.stage::after { content:""; position:absolute; inset:0; pointer-events:none; background:radial-gradient(circle at center,transparent 15%,rgba(0,0,0,.34) 100%); z-index:-1; }
+.empty-state { text-align:center; padding:32px; max-width:350px; }
+.upload-icon { margin:0 auto 18px; width:62px; height:62px; border:1px dashed #5b5b64; border-radius:20px; display:grid; place-items:center; color:var(--accent); font-size:31px; }
+.empty-state h2 { margin:0 0 8px; font-size:22px; }
+.empty-state p { color:var(--muted); line-height:1.45; margin:0 0 24px; }
+.primary-button { display:inline-flex; padding:13px 22px; border-radius:14px; background:var(--accent); color:#111500; font-weight:800; cursor:pointer; }
+.video-shell { width:100%; height:100%; display:grid; place-items:center; transform-origin:center; will-change:transform; }
+video { display:block; max-width:72%; max-height:72%; object-fit:contain; border-radius:4px; box-shadow:0 18px 60px rgba(0,0,0,.45); }
+.stage-play { position:absolute; z-index:3; width:64px; height:64px; border:0; border-radius:50%; background:rgba(184,255,52,.9); color:#101300; padding-left:5px; font-size:22px; backdrop-filter:blur(8px); box-shadow:0 8px 30px rgba(0,0,0,.3); transition:.2s; }
+.stage-play.playing { opacity:0; pointer-events:none; }
+.rotation-badge { position:absolute; right:14px; top:14px; padding:7px 10px; border:1px solid rgba(255,255,255,.12); background:rgba(10,10,12,.66); backdrop-filter:blur(10px); border-radius:10px; color:#d5d5d8; font-size:12px; font-variant-numeric:tabular-nums; }
+.controls { background:var(--card); border:1px solid var(--line); border-radius:24px; padding:18px; }
+.section-heading,.speed-row,.action-row { display:flex; align-items:center; justify-content:space-between; }
+.section-heading span { color:#85858d; font-size:11px; font-weight:800; letter-spacing:.13em; }
+.section-heading button { border:0; background:none; color:var(--accent); font-size:13px; padding:5px; }
+.direction-toggle { display:grid; grid-template-columns:1fr 1fr; gap:6px; padding:5px; margin:12px 0 20px; background:#0c0c0e; border-radius:15px; }
+.direction { height:46px; border:0; border-radius:11px; background:transparent; color:#96969e; font-size:14px; font-weight:700; }
+.direction span { font-size:20px; vertical-align:-1px; margin-right:5px; }
+.direction.active { background:#29292d; color:#fff; box-shadow:0 1px 5px rgba(0,0,0,.35); }
+.speed-row label { font-size:14px; font-weight:700; }
+.speed-row output { color:var(--accent); font-size:14px; font-variant-numeric:tabular-nums; }
+input[type=range] { appearance:none; width:100%; height:24px; background:transparent; margin:9px 0 0; }
+input[type=range]::-webkit-slider-runnable-track { height:5px; border-radius:99px; background:linear-gradient(to right,var(--accent) 0 var(--fill,16.67%),#36363c var(--fill,16.67%) 100%); }
+input[type=range]::-webkit-slider-thumb { appearance:none; width:24px; height:24px; margin-top:-9.5px; border-radius:50%; background:#fff; border:5px solid var(--accent); box-shadow:0 2px 8px #000; }
+input[type=range]::-moz-range-track { height:5px; border-radius:99px; background:#36363c; }
+input[type=range]::-moz-range-progress { height:5px; border-radius:99px; background:var(--accent); }
+input[type=range]::-moz-range-thumb { width:15px; height:15px; border-radius:50%; background:#fff; border:5px solid var(--accent); }
+.range-labels { display:flex; justify-content:space-between; color:#686870; font-size:10px; }
+.action-row { gap:10px; margin-top:18px; }
+.secondary-button,.play-button { height:48px; border-radius:14px; font-weight:800; }
+.secondary-button { flex:1; border:1px solid #39393f; background:#222226; }
+.play-button { flex:1.25; border:0; background:var(--accent); color:#101300; }
+.play-button span:first-child { margin-right:6px; }
+dialog { width:min(88vw,420px); border:1px solid #34343a; border-radius:22px; background:#1b1b1f; color:white; padding:26px; box-shadow:0 30px 100px #000; }
+dialog::backdrop { background:rgba(0,0,0,.7); backdrop-filter:blur(4px); }
+dialog h2 { margin-top:0; }
+dialog p { color:#aaaab2; line-height:1.55; }
+.dialog-close { position:absolute; right:14px; top:12px; border:0; background:none; color:#aaa; font-size:28px; }
+@media (min-width:700px) { .app { min-height:900px; max-height:100dvh; } }
+@media (max-height:700px) { .app { grid-template-rows:auto minmax(230px,1fr) auto; } .controls { padding:14px 16px; } .direction-toggle { margin:8px 0 12px; } .action-row { margin-top:10px; } }
